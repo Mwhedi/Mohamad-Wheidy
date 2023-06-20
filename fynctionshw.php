@@ -94,3 +94,27 @@ $result = multipartArrays($array1, $array2);
 print_r($result);
 
 ?>
+
+<?php
+function longeststring($array) { 
+    $longestString = '';
+    $longestIndex = 0;
+  
+    for ($i = 0; $i < count($array); $i++) {
+        if (strlen($array[$i]) > strlen($longestString)) {
+            $longestString = $array[$i];
+            $longestIndex = $i;
+        }
+    }
+  
+    return array(
+        'longestString' => $longestString,
+        'longestIndex' => $longestIndex
+    );
+}
+$strings = array('Ahmed', 'Mohammed', 'khalid', 'Karem','I Love PHP ');
+$result = longeststring($strings);
+
+echo "\n"."Longest string: " . $result['longestString'] . "\n";
+echo "Index of longest string: " . $result['longestIndex'] . "\n";
+?>

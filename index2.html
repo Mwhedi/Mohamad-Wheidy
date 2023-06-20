@@ -66,16 +66,27 @@ else{<br>
         <button id="button2" onclick="toggleVisibility('button2', 'div2')">Show Answer</button>
         <div id="div2" class="hidden-div">
             <p>
-                $string1 = "Go Mohammadhe";<br>
-                $wordtocheck = 'Go';<br>
-                $frsttwo = substr($string1,0,2);<br>
-                if($frsttwo==$wordtocheck){<br>
-                    echo'Two Words Are Same';<br>
+                <?php <br>
+                function longeststring($array) {  <br>
+                    $longestString = ''; $longestIndex = 0;<br>
+                    for ($i = 0; $i < count($array); $i++) {<br>
+                        if (strlen($array[$i]) > strlen($longestString)) {<br>
+                            $longestString = $array[$i];<br>
+                            $longestIndex = $i;<br>
+                        }<br>
+                    }<br>
+                    return array(<br>
+                        'longestString' => $longestString,<br>
+                        'longestIndex' => $longestIndex<br>
+                    );<br>
                 }<br>
-                else{<br>
-                    echo'Not Equal';<br>
-                }<br><br>
-                <span>Output Is: " Two Words Are Same"</span>
+                $strings = array('Ahmed', 'Mohammed', 'khalid', 'Karem','I Love PHP ');<br>
+                $result = longeststring($strings);<br>
+                echo "\n"."Longest string: " . $result['longestString'] . "\n";<br>
+                echo "Index of longest string: " . $result['longestIndex'] . "\n";<br>
+                ?><br>
+                <span>Output Is: "Longest string: I Love PHP 
+                    Index of longest string: 4 "</span>
 </p>
         </div>
     </div>
