@@ -1,0 +1,113 @@
+
+.hidden-div {
+    background-color: rgb(89, 89, 89);
+    color: aliceblue;
+    padding: 5px;
+    display: none;
+}
+body{
+background-color: rgb(235, 247, 243);
+}
+.namediv{
+text-align: center;
+height: 150px;
+background-color: rgba(82, 168, 222, 0.712);
+border-radius: 15px;            
+}
+.divq{
+background-color: rgba(124, 213, 174, 0.712);
+border-radius: 15px;  
+margin-top: 10px;
+width: auto;
+padding: 15px;
+}
+.divq2{
+background-color: rgba(166, 236, 231, 0.712);
+border-radius: 15px;  
+margin-top: 10px;
+padding: 15px;
+}
+button{
+background-color: rgb(163, 246, 222);
+border: 0.2px solid black;
+font-size: 20px;
+margin: 10px;
+}
+button:hover{
+background-color: rgba(219, 255, 240, 0.712);
+
+}
+span{
+padding-left: 10px;
+width: 790px;
+background-color: aliceblue;
+color: black;
+border: 2px solid black;
+border-radius: 10px;
+height: 80px;
+padding-top: 10px;
+display: block;
+}
+p{
+font-size: 20px;
+}
+.nav{
+    border-radius: 15px;            
+    margin-top: 3px;
+    font-size: 20px;
+    align-items: center;
+}
+a{
+    color: black;
+}
+a:hover{
+    background-color: rgb(193, 229, 255);
+}
+.nav-item{
+    background-color:none;
+}
+@media screen and (max-width:400px){
+    h1{
+        font-size: 25px;
+        line-height: 50px;
+        margin-top: -50px;
+    }
+    h2{
+        font-size: 18px;
+        line-height: 30px;
+        margin-top: -15px;
+    }
+    button{
+        font-size: 15px;
+        margin-top: 5px;
+        border: 0.5px solid black;
+    }
+    *{
+        margin-inline: 0px;
+    }
+    .divq,.divq2,.namediv{
+        width: 390px;
+        padding: 20px;
+    }
+    .namediv{
+        width: 390px;
+        padding: 20px;
+        height: 150px;
+    }
+    .hidden-div{
+        width: 390px;
+        margin-left: -10px;
+    }
+    p{
+        font-size: 16px;
+    }
+    span{
+        font-size: 13px;
+        width: 375px;
+        height: 100px;
+        font-size: 14px;
+        vertical-align: text-top;
+        padding-left: 5px;
+    }
+
+}
