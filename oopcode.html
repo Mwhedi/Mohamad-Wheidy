@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>OOP Code</title>
+</head>
+<body>
+    <div class="namediv">
+        <h1> <br>
+            Mohamad Omar Wheidy
+        </h1>
+        <h2>OOP Assignment</h2>
+    </div>
+    <div class="nav">
+        <ul class="nav">
+            <li class="nav-item itm">
+                <a class="nav-link active" aria-current="page" href="index.html">First Assigment</a>
+            </li>
+            <li class="nav-item itm">
+                <a class="nav-link" href="index2.html">Second Assigment</a>
+            </li>
+            <li class="nav-item itm">
+                <a class="nav-link" href="oopcode.html">OOP Assigment</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ques">
+        <h3>Objective:</h3>
+        <p>
+            Create a PHP application that manages student information using classes, namespaces, and traits.
+        </p>
+        <h3>Requirements:</h3>
+        <ol>
+            <li>
+                <p>
+                    Implement a "Student" class with the following properties:
+                </p>
+                <ul>
+                    <li>ID (readonly unique identifier)</li>
+                    <li>Name</li>
+                    <li>Email</li>
+                    <li>Courses (an array of "Course" objects)</li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    Implement a "Course" class with the following properties:
+                </p>
+                <ul>
+                    <li>ID (readonly unique identifier)</li>
+                    <li>Name</li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    Implement a "Manager" class that manages student objects::
+                </p>
+                <ul>
+                    <li>It should include methods to: add a student, retrieve a student by ID, update student details, and delete a student.
+                    </li>
+                    <li>The Manager class should use a trait called "Loggable" that logs any changes made to student records into a "log file"</li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    Use namespaces to organize the Student, Course and Manager classes into appropriate namespaces.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Create a script to demonstrate the functionality of the Student Management System:                </p>
+                <ul>
+                    <li>Instantiate the Manager class and perform operations like adding students, updating student details, retrieving student information, and deleting students.
+
+                    </li>
+                    <li>Ensure that the "Loggable" trait captures and logs any changes made to student records.</li>
+                </ul>
+            </li>
+    </ol>
+    </div>
+    <div class="ans">
+        <div class="dv">
+
+        <h3>Answer:</h3>
+        <h4 class="hh">1: Creating Student Class</h4>
+        <button class="btn br" id="button1" onclick="toggleVisibility('button1', 'div1')">Show Code</button>
+        <div id="div1" class="hidden-div">
+            <pre>
+    namespace OOPhw;
+
+    class Student
+    {
+        public static int $nextID = 0;
+        public string $name;
+        public string $email;
+        public $courses= [];
+
+        public function __construct($name, $email)
+        {
+            $this->ID = self::$nextID;
+            self::$nextID++;
+            $this->name = $name;
+            $this->email = $email;
+        }
+
+        public function getID()
+        {
+            return $this->ID;
+        }
+
+        public function getName()
+        {
+            return $this->name;
+        }
+        
+        public function setName($name)
+        {
+            $this->name = $name;
+        }
+
+        public function setEmail($email)
+        {
+            $this->email = $email;
+        }
+
+        public function getEmail()
+        {
+            return $this->email;
+        }
+
+        public function getCourses()
+        {
+            var_dump($courses);
+        }
+
+        public function addCourse(string $course)
+        {
+            $this->courses[]=$course;
+        }
+    }
+    ?>
+            </pre>
+    </div>
+        <div class="dv">
+        <h4 class="hh">2: Creating Course Class</h4>
+        <button  class="btn br" id="button2" onclick="toggleVisibility('button2', 'div2')">Show Code</button>
+        <div id="div2" class="hidden-div">
+            <pre>
+    
+    namespace OOPhw;
+    class Course
+    {
+        public static int $nextID = 0;
+        public $name;
+
+        public function __construct($name)
+        {
+            $this->ID = self::$nextID;
+            $this->name = $name;
+        }
+
+        public function getID()
+        {
+            return $this->ID;
+        }
+
+        public function getName()
+        {
+            return $this->name;
+        }
+        public function setName($name)
+        {
+            $this->name = $name;
+        }
+        
+    }
+    
+    ?>
+</pre>
+</div>
+</div>
+        <div class="dv">
+        <h4 class="hh">3: Creating Manager Class</h4>
+        <button  class="btn br" id="button3" onclick="toggleVisibility('button3', 'div3')">Show Code</button>
+        <div id="div3" class="hidden-div">
+            <pre>
+
+    namespace OOPhw;
+    use  OOPhw\Traits\Loggable;
+    
+    class Manager
+    {
+        use Loggable;
+        public $students = array();
+    
+        public function addStudent(Student $student)
+        {
+            $this->students[] = $student;
+            echo "Added student:" ;
+            echo "Name: {$student->name}";
+            echo "Email: {$student->email}";
+    
+        }
+        public function addCourse(Student $student , $course)
+        {
+            $student->courses[]=$course;
+            
+        }
+        public function updateStudent(Student $student, $name, $email)
+        {
+            $student->name = $name;
+            $student->email = $email;    
+            echo"Updated student: ID={$student->getID()}, Name={$student->getName()}, Email={$student->getEmail()}";   
+        }
+    
+        public function deleteStudent(Student $student)
+        {
+            $index = array_search($student, $this->students);
+            if ($index !== false) {
+                unset($this->students[$index]);
+                echo "";
+                echo"Deleted student: ID={$student->getID()}, Name={$student->getName()}, Email={$student->getEmail()}";
+                echo "";
+    
+            }
+        }
+        public function showStudentData(Student $student)
+        {
+            echo "Name: {$student->name}";
+            echo "Email: {$student->email}";
+            echo "Courses:";
+            foreach ($student->courses as $course) {
+                echo "- $course";
+            }
+        }
+    }
+    
+</pre>
+                </div>
+
+    </div>
+        <div class="dv">
+        <h4 class="hh">4: Creating Loggable File</h4>
+        <button  class="btn br" id="button4" onclick="toggleVisibility('button4', 'div4')">Show Code</button>
+        <div id="div4" class="hidden-div">
+            <pre>
+
+    namespace OOPhw\Traits;
+
+    trait Loggable
+    {
+        public function log($message)
+        {
+            $logFile = 'log.txt';
+            file_put_contents($logFile, $message, FILE_APPEND);
+        }
+    }
+</pre>
+                </div>
+
+    </div>
+        <div class="dv">
+        <h4 class="hh">5: Creating Index File</h4>
+        <button  class="btn br" id="button5" onclick="toggleVisibility('button5', 'div5')">Show Code</button>
+        <div id="div5" class="hidden-div">
+            <pre>
+
+
+    require_once 'Student.php';
+    require_once 'Course.php';
+    require_once 'Loggable.php';
+    require_once 'Manager.php';
+    
+    use OOPhw\Student;
+    use OOPhw\Manager;
+    
+    $manager = new Manager();
+    
+    $student1 = new Student('Mohamad Wheidy', 'Mohamad@gmail.com');
+    $manager->addStudent($student1);
+    
+    $student2 = new Student('Ahmad Khaled', 'Ahmad@google.com');
+    $manager->addCourse($student1, 'Java');
+    $manager->addCourse($student1, 'Css');
+    $manager->addStudent($student2);
+    
+    $manager->updateStudent($student1, 'Mohamad Omar Wheidy', 'Mohamad.Geeks@Gmail.ps');
+    
+    $shwstudent = $manager->showStudentData($student1);
+    if ($shwstudent) {
+        echo 'Show student: ' . $shwstudent->getName(). "<br>";
+    } else {
+        echo 'Student not found.';
+    }
+    $manager->deleteStudent($student2);
+    $logFile = 'log.txt';
+    if (file_exists($logFile)) {
+        echo 'Log file contents:';
+        echo "<p>".file_get_contents($logFile) . "</p>";
+    } else {
+        echo 'Log file not found.' ;
+    }
+                
+</pre>
+                </div>
+
+    </div>
+    <br>
+        <h4 class="ot">-- Final Output --<h4>
+
+    <div class="out">
+        <pre class="pr">
+
+Added student:
+Name: Mohamad WheidyEmail: Mohamad@gmail.com
+Added student:
+Name: Ahmad KhaledEmail: Ahmad@google.com
+
+Updated student: ID=0, Name=Mohamad Omar Wheidy, Email=Mohamad.Geeks@Gmail.ps
+
+Name: Mohamad Omar WheidyEmail: Mohamad.Geeks@Gmail.psCourses:- Java- Css
+Student not found.
+Deleted student: ID=1, Name=Ahmad Khaled, Email=Ahmad@google.com
+
+Log file contents:
+Added student: ID=0, Name=Mohamad Wheidy, Email=Mohamad@gmail.com 
+Added student: ID=1, Name=Ahmad Khaled, Email=Ahmad@google.com 
+Updated student: ID=0, Name=Mohamad Omar Wheidy, Email='Mohamad.Geeks@Gmail.ps 
+Deleted student: ID=1, Name=Ahmad Khaled, Email=Ahmad@google.com
+        </pre>       
+    </div>
+    </div>
+ <script>
+        function toggleVisibility(buttonId, divId) {
+          var div = document.getElementById(divId);
+          var button = document.getElementById(buttonId);
+          
+          if (div.style.display === "none") {
+            div.style.display = "block";
+            button.textContent = "Hide Code";
+          } else {
+            div.style.display = "none";
+            button.textContent = "Show Code";
+          }
+        }
+        </script>
+</body>
+</html>

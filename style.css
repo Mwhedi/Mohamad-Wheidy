@@ -7,7 +7,26 @@
 }
 body{
 background-color: rgb(235, 247, 243);
+margin-inline: 10px;
 }
+.itm{
+font-size: 12px;}
+.code-editor {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5;
+    overflow: auto;
+  }
+  
+  .code-editor pre {
+    margin: 0;
+  }
+  
+  .code-editor code {
+    display: block;
+  }
 .namediv{
 text-align: center;
 height: 150px;
@@ -15,11 +34,18 @@ background-color: rgba(82, 168, 222, 0.712);
 border-radius: 15px;            
 }
 .divq{
-background-color: rgba(124, 213, 174, 0.712);
-border-radius: 15px;  
-margin-top: 10px;
-width: auto;
-padding: 15px;
+    background-color: rgba(124, 213, 174, 0.712);
+    border-radius: 15px;  
+    margin-top: 10px;
+    width: auto;
+    padding: 15px;
+}
+.ans{
+    background-color: rgba(166, 236, 231, 0.712);
+    border-radius: 15px;  
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;  
 }
 .divq2{
 background-color: rgba(166, 236, 231, 0.712);
@@ -33,9 +59,28 @@ border: 0.2px solid black;
 font-size: 20px;
 margin: 10px;
 }
+.btn{
+    background-color: rgba(192, 249, 245, 0.902);
+border: 0.2px solid black;
+font-size: 20px;
+margin: 10px;
+}
 button:hover{
-background-color: rgba(219, 255, 240, 0.712);
+background-color: rgba(219, 255, 252, 0.712);
 
+}
+.btn:hover{
+background-color: rgba(219, 236, 255, 0.712);
+
+}
+.code{
+    background-color: rgb(94, 94, 94);
+    color: aliceblue;
+    padding: 5px;
+}
+pre{
+    border-radius: 10px;
+    color: aliceblue;
 }
 span{
 padding-left: 10px;
@@ -66,8 +111,42 @@ a:hover{
 .nav-item{
     background-color:none;
 }
+.dv{
+    margin-top: 10px;
+}
+.ques{
+    background-color: rgba(124, 213, 174, 0.712);
+    border-radius: 15px;  
+    margin-top: 10px;
+    width: auto;
+    padding: 15px;
+}
+.pr{
+    color: #1e1e1e;
+}
+.ot
+{
+text-align: center;
+}
 
+.out{
+ 
+    padding-left: 10px;
+    font-size: 20px;
+    background-color: aliceblue;
+    color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-top: 10px;
+    display: block;
+
+}
 @media screen and (max-width:400px){
+    .nav{
+        border-radius: 15px;            
+        font-size: 15px;
+        align-items: center;
+    }
     h1{
         font-size: 25px;
         line-height: 50px;
@@ -77,6 +156,9 @@ a:hover{
         font-size: 18px;
         line-height: 30px;
         margin-top: -15px;
+    }
+    .itm{
+        font-size: 15px;
     }
     button{
         font-size: 15px;
@@ -96,7 +178,7 @@ a:hover{
         height: 150px;
     }
     .hidden-div{
-        width: 370px;
+        width: 360px;
         margin-left: -10px;
     }
     p{
@@ -110,5 +192,24 @@ a:hover{
         vertical-align: text-top;
         padding-left: 5px;
     }
+    
+    .ot
+    {
+        margin-left: 80px;
+        font-size: 20px;
+        text-align: left;
 
+    }
+    .hh{
+        font-size: 20px;
+    }
+    .br{
+        font-size: 12px;
+        margin-top: 3px;
+    }
+    .out{
+        font-size: 13px;
+        font-size: 10px;
+        vertical-align: text-top;
+    }
 }
